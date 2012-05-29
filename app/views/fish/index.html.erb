@@ -1,0 +1,27 @@
+<h1>Listing fish</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Length</th>
+    <th>Is tasty</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fish.each do |fish| %>
+  <tr>
+    <td><%= fish.name %></td>
+    <td><%= fish.length %></td>
+    <td><%= fish.is_tasty %></td>
+    <td><%= link_to 'Show', fish %></td>
+    <td><%= link_to 'Edit', edit_fish_path(fish) %></td>
+    <td><%= link_to 'Destroy', fish, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fish', new_fish_path %>

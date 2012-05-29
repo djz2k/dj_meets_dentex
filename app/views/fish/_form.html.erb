@@ -1,0 +1,29 @@
+<%= form_for(@fish) do |f| %>
+  <% if @fish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fish.errors.count, "error") %> prohibited this fish from being saved:</h2>
+
+      <ul>
+      <% @fish.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br />
+    <%= f.number_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :is_tasty %><br />
+    <%= f.check_box :is_tasty %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
